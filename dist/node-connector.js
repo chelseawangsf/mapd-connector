@@ -25752,7 +25752,7 @@ module.exports =
 	  }
 	  return callback('sql_validate failed: unknown result');
 	};
-	MapDClient.prototype.get_completion_hints = function (session, sql, cursor, disableKeywords, callback) {
+	MapDClient.prototype.get_completion_hints = function (session, sql, cursor, callback) {
 	  this._seqid = this.new_seqid();
 	  if (callback === undefined) {
 	    var _defer = Q.defer();
@@ -30316,8 +30316,7 @@ module.exports =
 	    this.getCompletionHints = function (queryString, options, callback) {
 	      // console.log('this._client from connector getCompletionHints', this._client);
 	      var cursor = options.cursor;
-	      var disableKeywords = options.disableKeywords;
-	      var result = _this._client[0].get_completion_hints(_this._sessionId[0], queryString, cursor, disableKeywords, function (error, result) {
+	      var result = _this._client[0].get_completion_hints(_this._sessionId[0], queryString, cursor, function (error, result) {
 	        if (error) {
 	          callback(error);
 	        } else {
