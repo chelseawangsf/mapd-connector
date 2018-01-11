@@ -328,7 +328,7 @@ class MapdCon {
         }
       })
     })
-   }
+  }
 
   /**
    * Get the status of the server as an array of <code>TServerStatus</code> objects.
@@ -740,13 +740,13 @@ class MapdCon {
   }
 
   /**
-   * Submits a sql string to the backend and returns a completion hints object 
+   * Submits a sql string to the backend and returns a completion hints object
    * @param {String} queryString a fragment of SQL input
-   * @param {Object} cursor the current cursor position, 1-indexed from the start of queryString
+   * @param {Object} options an options object continaing the current cursor position, 1-indexed from the start of queryString
    * @param {Function} callback a callback function with the signature `(err, result) => result`
    * @returns {Array} An array of completion hints objects that contains the completion hints
-   * 
-   * @example 
+   *
+   * @example
    * const queryString = "f";
    * const cursor = 1;
    *
@@ -763,15 +763,16 @@ class MapdCon {
    */
   getCompletionHints = (queryString, options, callback) => {
     // console.log('this._client from connector getCompletionHints', this._client);
-    const cursor = options.cursor;
-    const result = this._client[0].get_completion_hints(this._sessionId[0], queryString, cursor, (error, result) => {
+    const cursor = options.cursor
+    // const result =
+    this._client[0].get_completion_hints(this._sessionId[0], queryString, cursor, (error, result) => {
       if (error) {
         callback(error)
       } else {
-        console.log('result from getCompletionHints', result);
+        console.log("result from getCompletionHints", result)
         callback(null, result)
       }
-    });
+    })
   }
 
   /**
