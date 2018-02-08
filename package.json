@@ -42,7 +42,7 @@
     "karma-webpack": "^2.0.3",
     "mocha": "^2.5.3",
     "nyc": "^10.3.0",
-    "webpack": "^1.15.0"
+    "webpack": "^3.10.0"
   },
   "nyc": {
     "check-coverage": true,
