@@ -1,7 +1,6 @@
 const path = require("path")
 
 module.exports = {
-  ecmaFeatures: {modules: true},
   entry: [
     "script!./build/thrift/browser/thrift.js",
     "script!./build/thrift/browser/mapd_types.js",
